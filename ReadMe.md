@@ -19,8 +19,9 @@ pip install -r requirements.txt
 
 ## Running the Code
 1. Download the datasets ('deliveries.csv' and 'matches.csv') and place them in the same directory as the code file.
-2. Ensure you have the required libraries installed (`pip install pandas matplotlib seaborn`).
-3. Run the code in a Python environment.
+2. The dataset used can be found [here](https://www.kaggle.com/datasets/manasgarg/ipl).
+3. Ensure you have the required libraries installed (`pip install pandas matplotlib seaborn`).
+4. Run the code in a Python environment.
 
 ## Code Structure
 - **Exploratory Data Analysis on Deliveries Dataset:**
