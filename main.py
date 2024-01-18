@@ -4,10 +4,10 @@ import seaborn as sns
 import numpy as np
 
 # Load deliveries dataset
-deliveries_df = pd.read_csv('deliveries.csv')
+deliveries_df = pd.read_csv('/content/deliveries.csv')
 
 # Load matches dataset
-matches_df = pd.read_csv('matches.csv')
+matches_df = pd.read_csv('/content/matches.csv')
 
 # Explore the structure of the datasets
 print("Deliveries Dataset:")
@@ -334,4 +334,31 @@ plt.show()
 wicket_deliveries_df = deliveries_df.dropna(subset=['dismissal_kind'])
 wicket_deliveries_df = wicket_deliveries_df[~wicket_deliveries_df['dismissal_kind'].isin(['run out', 'retired hurt', 'obstructing the field'])]
 most_wickets = wicket_deliveries_df.groupby('bowler')['dismissal_kind'].agg(['count']).reset_index().sort_values('count', ascending=False).reset_index(drop=True).iloc[:10, :]
+
+# Identify most successful teams
+most_successful_teams = matches_df['winner'].value_counts().head(5)
+print("Most Successful Teams:")
+print(most_successful_teams)
+
+# Identify most successful players
+most_successful_players = deliveries_df.groupby('batsman')['batsman_runs'].sum().sort_values(ascending=False).head(5)
+print("\nMost Successful Players:")
+print(most_successful_players)
+
+# Visualize the most successful teams
+plt.figure(figsize=(12, 6))
+most_successful_teams.plot(kind='bar', color='cyan')
+plt.title('Most Successful Teams')
+plt.xlabel('Teams')
+plt.ylabel('Total Wins')
+plt.show()
+
+# Visualize the most successful players
+plt.figure(figsize=(12, 6))
+most_successful_players.plot(kind='bar', color='magenta')
+plt.title('Most Successful Players')
+plt.xlabel('Players')
+plt.ylabel('Total Runs')
+plt.show()
+
 
