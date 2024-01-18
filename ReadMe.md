@@ -12,7 +12,8 @@ This repository contains code for performing Exploratory Data Analysis (EDA) on 
 - pandas
 - matplotlib
 - seaborn
-## Installation  
+## Installation 
+1.
 ```bash 
 pip install -r requirements.txt
 ```
@@ -20,7 +21,7 @@ pip install -r requirements.txt
 ## Running the Code
 1. Download the datasets ('deliveries.csv' and 'matches.csv') and place them in the same directory as the code file.
 2. The dataset used can be found [here](https://www.kaggle.com/datasets/manasgarg/ipl).
-3. Ensure you have the required libraries installed (`pip install pandas matplotlib seaborn`).
+3. Ensure you have the required libraries installed , use above installation steps.
 4. Run the code in a Python environment.
 
 ## Code Structure
