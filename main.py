@@ -4,10 +4,10 @@ import seaborn as sns
 import numpy as np
 
 # Load deliveries dataset
-deliveries_df = pd.read_csv('/content/deliveries.csv')
+deliveries_df = pd.read_csv('deliveries.csv')
 
 # Load matches dataset
-matches_df = pd.read_csv('/content/matches.csv')
+matches_df = pd.read_csv('matches.csv')
 
 # Explore the structure of the datasets
 print("Deliveries Dataset:")
