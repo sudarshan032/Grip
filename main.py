@@ -39,11 +39,14 @@ def plot_per_column_distribution(df, n_graph_shown, n_graph_per_row):
 
 # Correlation matrix for matches dataset
 def plot_correlation_matrix(df, graph_width):
-    df = df.dropna(axis='columns')  # Use axis parameter for future versions
-    df = df[[col for col in df if df[col].nunique() > 1]]
+    df = df.dropna(axis='columns')
+    numeric_cols = df.select_dtypes(include=[np.number]).columns
+    df = df[numeric_cols]
+    
     if df.shape[1] < 2:
-        print(f'No correlation plots shown: The number of non-NaN or constant columns ({df.shape[1]}) is less than 2')
+        print(f'No correlation plots shown: The number of numeric columns ({df.shape[1]}) is less than 2')
         return
+    
     corr = df.corr()
     plt.figure(num=None, figsize=(graph_width, graph_width), dpi=80, facecolor='w', edgecolor='k')
     corr_mat = plt.matshow(corr, fignum=1)
@@ -53,6 +56,7 @@ def plot_correlation_matrix(df, graph_width):
     plt.colorbar(corr_mat)
     plt.title(f'Correlation Matrix for Matches Dataset', fontsize=15)
     plt.show()
+
 
 # Scatter and density plots for deliveries dataset
 def plot_scatter_matrix(df, plot_size, text_size):
