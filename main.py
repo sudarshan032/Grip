@@ -365,4 +365,3 @@ plt.xlabel('Players')
 plt.ylabel('Total Runs')
 plt.show()
 
-
